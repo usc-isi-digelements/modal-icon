@@ -1,0 +1,117 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<!--
+A polymer web component that shows a modular polymer iron-icon that can change between the expand icon, the collapse icon, and a given icon.
+
+Example:
+
+        <modal-icon
+          icon="icons:polymer"
+          icon-style-class="style-class"
+          openable
+          open="[[open]]"
+          hovering="[[hovering]]">
+        </modal-icon>
+
+@demo demo/index.html
+-->
+
+<dom-module id="modal-icon">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .show {
+        display: block;
+      }
+    </style>
+
+    <iron-icon class$="[[showOrHideCustomIcon(openable, hovering)]] [[iconStyleClass]]" icon$="[[icon]]" item-icon></iron-icon>
+
+    <template is="dom-if" if="[[openable]]">
+      <iron-icon class$="[[showOrHideOpenedIcon(open, hovering)]]" icon="icons:expand-less" item-icon></iron-icon>
+      <iron-icon class$="[[showOrHideClosedIcon(open, hovering)]]" icon="icons:expand-more" item-icon></iron-icon>
+    </template>
+  </template>
+
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'modal-icon',
+
+      properties: {
+        /**
+         * A polymer iron-icon string.
+         */
+        icon: {
+          type: String,
+          value: ''
+        },
+
+        /**
+         * The style class for the given icon.
+         */
+        iconStyleClass: {
+          type: String,
+          value: ''
+        },
+
+        /**
+         * Whether the parent of this modal-icon is openable (to show the expand and collapse icons).
+         */
+        openable: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * Whether the parent of this modal-icon is open.
+         */
+        open: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * Whether the user is hovering over the parent of this modal-icon.
+         */
+        hovering: {
+          type: Boolean,
+          value: false
+        }
+      },
+
+      /**
+       * Returns the style class for the given custom icon based on whether the parent is openable and the user is hovering.
+       */
+      showOrHideCustomIcon: function(openable, hovering) {
+        return (openable && hovering) ? 'hide' : 'show';
+      },
+
+      /**
+       * Returns the style class for the collapse icon based on whether the parent is open and the user is hovering.
+       */
+      showOrHideOpenedIcon: function(open, hovering) {
+        return (open && hovering) ? 'show' : 'hide';
+      },
+
+      /**
+       * Returns the style class for the expand icon based on whether the parent is open and the user is hovering.
+       */
+      showOrHideClosedIcon: function(open, hovering) {
+        return (!open && hovering) ? 'show' : 'hide';
+      }
+    });
+  })();
+  </script>
+</dom-module>

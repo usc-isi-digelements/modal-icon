@@ -1,0 +1,111 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link rel="import" href="../modal-icon.html">
+</head>
+
+<body>
+  <test-fixture id="modal-icon-fixture">
+    <template>
+      <modal-icon></modal-icon>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('modal-icon tests', function() {
+      var component;
+
+      setup(function() {
+        component = fixture('modal-icon-fixture');
+        component.icon = 'icons:polymer';
+      });
+
+      test('icon is set to correct value', function() {
+        expect(component.icon).to.equal('icons:polymer');
+      });
+
+      test('properties are set to default values', function() {
+        expect(component.iconStyleClass).to.equal('');
+        expect(component.openable).to.be.false;
+        expect(component.open).to.be.false;
+        expect(component.hovering).to.be.false;
+      });
+
+      test('does show custom iron-icon', function() {
+        expect(component.$$('iron-icon.show')).to.exist;
+        expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+      });
+
+      test('does show custom iron-icon if openable but not hovering or open', function(done) {
+        component.openable = true;
+        flush(function() {
+          expect(component.$$('iron-icon.show')).to.exist;
+          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          done();
+        });
+      });
+
+      test('does show custom iron-icon if open but not hovering or openable', function(done) {
+        component.open = true;
+        flush(function() {
+          expect(component.$$('iron-icon.show')).to.exist;
+          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          done();
+        });
+      });
+
+      test('does show custom iron-icon if open and openable but not hovering', function(done) {
+        component.openable = true;
+        component.open = true;
+        flush(function() {
+          expect(component.$$('iron-icon.show')).to.exist;
+          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          done();
+        });
+      });
+
+      test('does show custom iron-icon if hovering but not open or openable', function(done) {
+        component.hovering = true;
+        flush(function() {
+          expect(component.$$('iron-icon.show')).to.exist;
+          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          done();
+        });
+      });
+
+      test('does show custom iron-icon if hovering and open but not openable', function(done) {
+        component.hovering = true;
+        flush(function() {
+          expect(component.$$('iron-icon.show')).to.exist;
+          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          done();
+        });
+      });
+
+      test('does show expand-more iron-icon if hovering and openable but not open', function(done) {
+        component.openable = true;
+        component.hovering = true;
+        flush(function() {
+          expect(component.$$('iron-icon.show')).to.exist;
+          expect(component.$$('iron-icon.show').icon).to.equal('icons:expand-more');
+          done();
+        });
+      });
+
+      test('does show expand-more iron-icon if hovering and open and openable', function(done) {
+        component.openable = true;
+        component.open = true;
+        component.hovering = true;
+        flush(function() {
+          expect(component.$$('iron-icon.show')).to.exist;
+          expect(component.$$('iron-icon.show').icon).to.equal('icons:expand-less');
+          done();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
