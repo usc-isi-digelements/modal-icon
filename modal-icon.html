@@ -1,9 +1,9 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
 
 <!--
-A polymer web component that shows a modular polymer iron-icon that can change between the expand icon, the collapse icon, and a given icon.
+A polymer web component that shows a modular polymer paper-icon-button that can change between the expand icon, the collapse icon, and a given icon.
 
 Example:
 
@@ -22,7 +22,8 @@ Example:
   <template>
     <style>
       :host {
-        display: block;
+        display: flex;
+        align-items: center;
       }
 
       .hide {
@@ -34,11 +35,11 @@ Example:
       }
     </style>
 
-    <iron-icon class$="[[showOrHideCustomIcon(openable, hovering)]] [[iconStyleClass]]" icon$="[[icon]]" item-icon></iron-icon>
+    <paper-icon-button class$="[[showOrHideCustomIcon(openable, hovering)]] [[iconStyleClass]]" icon$="[[icon]]" item-icon></paper-icon-button>
 
     <template is="dom-if" if="[[openable]]">
-      <iron-icon class$="[[showOrHideOpenedIcon(open, hovering)]]" icon="icons:expand-less" item-icon></iron-icon>
-      <iron-icon class$="[[showOrHideClosedIcon(open, hovering)]]" icon="icons:expand-more" item-icon></iron-icon>
+      <paper-icon-button class$="[[showOrHideOpenedIcon(open, hovering)]]" icon="icons:expand-less" item-icon></paper-icon-button>
+      <paper-icon-button class$="[[showOrHideClosedIcon(open, hovering)]]" icon="icons:expand-more" item-icon></paper-icon-button>
     </template>
   </template>
 
@@ -51,7 +52,7 @@ Example:
 
       properties: {
         /**
-         * A polymer iron-icon string.
+         * A polymer paper-icon-button string.
          */
         icon: {
           type: String,

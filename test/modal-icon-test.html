@@ -34,74 +34,74 @@
         expect(component.hovering).to.be.false;
       });
 
-      test('does show custom iron-icon', function() {
-        expect(component.$$('iron-icon.show')).to.exist;
-        expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+      test('does show custom paper-icon-button', function() {
+        expect(component.$$('paper-icon-button.show')).to.exist;
+        expect(component.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
       });
 
-      test('does show custom iron-icon if openable but not hovering or open', function(done) {
+      test('does show custom paper-icon-button if openable but not hovering or open', function(done) {
         component.openable = true;
         flush(function() {
-          expect(component.$$('iron-icon.show')).to.exist;
-          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          expect(component.$$('paper-icon-button.show')).to.exist;
+          expect(component.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show custom iron-icon if open but not hovering or openable', function(done) {
+      test('does show custom paper-icon-button if open but not hovering or openable', function(done) {
         component.open = true;
         flush(function() {
-          expect(component.$$('iron-icon.show')).to.exist;
-          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          expect(component.$$('paper-icon-button.show')).to.exist;
+          expect(component.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show custom iron-icon if open and openable but not hovering', function(done) {
+      test('does show custom paper-icon-button if open and openable but not hovering', function(done) {
         component.openable = true;
         component.open = true;
         flush(function() {
-          expect(component.$$('iron-icon.show')).to.exist;
-          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          expect(component.$$('paper-icon-button.show')).to.exist;
+          expect(component.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show custom iron-icon if hovering but not open or openable', function(done) {
+      test('does show custom paper-icon-button if hovering but not open or openable', function(done) {
         component.hovering = true;
         flush(function() {
-          expect(component.$$('iron-icon.show')).to.exist;
-          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          expect(component.$$('paper-icon-button.show')).to.exist;
+          expect(component.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show custom iron-icon if hovering and open but not openable', function(done) {
+      test('does show custom paper-icon-button if hovering and open but not openable', function(done) {
         component.hovering = true;
         flush(function() {
-          expect(component.$$('iron-icon.show')).to.exist;
-          expect(component.$$('iron-icon.show').icon).to.equal('icons:polymer');
+          expect(component.$$('paper-icon-button.show')).to.exist;
+          expect(component.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show expand-more iron-icon if hovering and openable but not open', function(done) {
+      test('does show expand-more paper-icon-button if hovering and openable but not open', function(done) {
         component.openable = true;
         component.hovering = true;
         flush(function() {
-          expect(component.$$('iron-icon.show')).to.exist;
-          expect(component.$$('iron-icon.show').icon).to.equal('icons:expand-more');
+          expect(component.$$('paper-icon-button.show')).to.exist;
+          expect(component.$$('paper-icon-button.show').icon).to.equal('icons:expand-more');
           done();
         });
       });
 
-      test('does show expand-more iron-icon if hovering and open and openable', function(done) {
+      test('does show expand-more paper-icon-button if hovering and open and openable', function(done) {
         component.openable = true;
         component.open = true;
         component.hovering = true;
         flush(function() {
-          expect(component.$$('iron-icon.show')).to.exist;
-          expect(component.$$('iron-icon.show').icon).to.equal('icons:expand-less');
+          expect(component.$$('paper-icon-button.show')).to.exist;
+          expect(component.$$('paper-icon-button.show').icon).to.equal('icons:expand-less');
           done();
         });
       });
