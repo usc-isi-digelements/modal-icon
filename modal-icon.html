@@ -10,9 +10,9 @@ Example:
         <modal-icon
           icon="icons:polymer"
           icon-style-class="style-class"
+          show-icon="[[hovering]]"
           openable
-          open="[[open]]"
-          hovering="[[hovering]]">
+          open="[[open]]">
         </modal-icon>
 
 @demo demo/index.html
@@ -35,12 +35,9 @@ Example:
       }
     </style>
 
-    <paper-icon-button class$="[[_showOrHideCustomIcon(openable, hovering)]] [[iconStyleClass]]" icon$="[[icon]]" item-icon></paper-icon-button>
-
-    <template is="dom-if" if="[[openable]]">
-      <paper-icon-button class$="[[_showOrHideOpenedIcon(open, hovering)]]" icon="icons:expand-less" item-icon></paper-icon-button>
-      <paper-icon-button class$="[[_showOrHideClosedIcon(open, hovering)]]" icon="icons:expand-more" item-icon></paper-icon-button>
-    </template>
+    <paper-icon-button class$="[[_showOrHideCustomIcon(showIcon, openable)]] [[iconStyleClass]]" icon$="[[icon]]" noink="[[ripple]]"></paper-icon-button>
+    <paper-icon-button class$="[[_showOrHideOpenedIcon(showIcon, openable, open)]]" icon="icons:expand-less" noink="[[ripple]]"></paper-icon-button>
+    <paper-icon-button class$="[[_showOrHideClosedIcon(showIcon, openable, open)]]" icon="icons:expand-more" noink="[[ripple]]"></paper-icon-button>
   </template>
 
   <script>
@@ -68,7 +65,15 @@ Example:
         },
 
         /**
-         * Whether the parent of this modal-icon is openable (to show the expand and collapse icons).
+         * Whether to show the given icon (override the expand and collapse icons).
+         */
+        showIcon: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * Whether this modal-icon is openable (to show the expand and collapse icons).
          */
         openable: {
           type: Boolean,
@@ -76,7 +81,7 @@ Example:
         },
 
         /**
-         * Whether the parent of this modal-icon is open.
+         * Whether this modal-icon is open.
          */
         open: {
           type: Boolean,
@@ -84,33 +89,33 @@ Example:
         },
 
         /**
-         * Whether the user is hovering over the parent of this modal-icon.
+         * Whether to show the polymer button ripple effect.
          */
-        hovering: {
+        ripple: {
           type: Boolean,
           value: false
         }
       },
 
       /**
-       * Returns the style class for the given custom icon based on whether the parent is openable and the user is hovering.
+       * Returns the style class for the given custom icon based on whether to show the custom icon and whether this modal-item is openable.
        */
-      _showOrHideCustomIcon: function(openable, hovering) {
-        return (openable && hovering) ? 'hide' : 'show';
+      _showOrHideCustomIcon: function(showIcon, openable) {
+        return (showIcon || !openable) ? 'show' : 'hide';
       },
 
       /**
-       * Returns the style class for the collapse icon based on whether the parent is open and the user is hovering.
+       * Returns the style class for the collapse icon based on whether to show the custom icon, whether this modal-item is openable, and whether it is open.
        */
-      _showOrHideOpenedIcon: function(open, hovering) {
-        return (open && hovering) ? 'show' : 'hide';
+      _showOrHideOpenedIcon: function(showIcon, openable, open) {
+        return (!showIcon && openable && open) ? 'show' : 'hide';
       },
 
       /**
-       * Returns the style class for the expand icon based on whether the parent is open and the user is hovering.
+       * Returns the style class for the expand icon based on whether to show the custom icon, whether this modal-item is openable, and whether it is open.
        */
-      _showOrHideClosedIcon: function(open, hovering) {
-        return (!open && hovering) ? 'show' : 'hide';
+      _showOrHideClosedIcon: function(showIcon, openable, open) {
+        return (!showIcon && openable && !open) ? 'show' : 'hide';
       }
     });
   })();

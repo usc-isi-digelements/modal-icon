@@ -7,9 +7,9 @@ Example:
         <modal-icon
           icon="icons:polymer"
           icon-style-class="style-class"
+          show-icon="[[hovering]]"
           openable
-          open="[[open]]"
-          hovering="[[hovering]]">
+          open="[[open]]">
         </modal-icon>
 ```
 
