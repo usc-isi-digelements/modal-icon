@@ -113,11 +113,11 @@
 
       test('ripple does set noink', function(done) {
         expect(component.$$('paper-icon-button')).to.exist;
-        expect(component.$$('paper-icon-button').noink).to.be.false;
+        expect(component.$$('paper-icon-button').noink).to.be.true;
         component.ripple = true;
         flush(function() {
           expect(component.$$('paper-icon-button')).to.exist;
-          expect(component.$$('paper-icon-button').noink).to.be.true;
+          expect(component.$$('paper-icon-button').noink).to.be.false;
           done();
         });
       });
