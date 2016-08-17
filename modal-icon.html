@@ -35,11 +35,11 @@ Example:
       }
     </style>
 
-    <paper-icon-button class$="[[showOrHideCustomIcon(openable, hovering)]] [[iconStyleClass]]" icon$="[[icon]]" item-icon></paper-icon-button>
+    <paper-icon-button class$="[[_showOrHideCustomIcon(openable, hovering)]] [[iconStyleClass]]" icon$="[[icon]]" item-icon></paper-icon-button>
 
     <template is="dom-if" if="[[openable]]">
-      <paper-icon-button class$="[[showOrHideOpenedIcon(open, hovering)]]" icon="icons:expand-less" item-icon></paper-icon-button>
-      <paper-icon-button class$="[[showOrHideClosedIcon(open, hovering)]]" icon="icons:expand-more" item-icon></paper-icon-button>
+      <paper-icon-button class$="[[_showOrHideOpenedIcon(open, hovering)]]" icon="icons:expand-less" item-icon></paper-icon-button>
+      <paper-icon-button class$="[[_showOrHideClosedIcon(open, hovering)]]" icon="icons:expand-more" item-icon></paper-icon-button>
     </template>
   </template>
 
@@ -95,21 +95,21 @@ Example:
       /**
        * Returns the style class for the given custom icon based on whether the parent is openable and the user is hovering.
        */
-      showOrHideCustomIcon: function(openable, hovering) {
+      _showOrHideCustomIcon: function(openable, hovering) {
         return (openable && hovering) ? 'hide' : 'show';
       },
 
       /**
        * Returns the style class for the collapse icon based on whether the parent is open and the user is hovering.
        */
-      showOrHideOpenedIcon: function(open, hovering) {
+      _showOrHideOpenedIcon: function(open, hovering) {
         return (open && hovering) ? 'show' : 'hide';
       },
 
       /**
        * Returns the style class for the expand icon based on whether the parent is open and the user is hovering.
        */
-      showOrHideClosedIcon: function(open, hovering) {
+      _showOrHideClosedIcon: function(open, hovering) {
         return (!open && hovering) ? 'show' : 'hide';
       }
     });
