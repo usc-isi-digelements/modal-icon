@@ -3,17 +3,17 @@
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 
 <!--
-A polymer web component that shows a modular polymer paper-icon-button that can change between the expand icon, the collapse icon, and a given icon.
+A Polymer Element showing a modular polymer paper-icon-button that can change between the expand icon, the collapse icon, and a given icon.
 
-Example:
+### Example
 
-        <modal-icon
-          icon="icons:polymer"
-          icon-style-class="style-class"
-          show-icon="[[hovering]]"
-          openable
-          open="[[open]]">
-        </modal-icon>
+    <modal-icon
+        icon="icons:polymer"
+        icon-style-class="style-class"
+        show-icon="[[hovering]]"
+        openable
+        open="[[open]]">
+    </modal-icon>
 
 @demo demo/index.html
 -->
@@ -49,7 +49,10 @@ Example:
 
       properties: {
         /**
-         * A polymer paper-icon-button string.
+         * A polymer paper-icon-button icon string.
+         *
+         * @type {String}
+         * @default ''
          */
         icon: {
           type: String,
@@ -58,6 +61,9 @@ Example:
 
         /**
          * The style class for the given icon.
+         *
+         * @type {String}
+         * @default ''
          */
         iconStyleClass: {
           type: String,
@@ -66,6 +72,9 @@ Example:
 
         /**
          * Whether to show the given icon (override the expand and collapse icons).
+         *
+         * @type {Boolean}
+         * @default false
          */
         showIcon: {
           type: Boolean,
@@ -74,6 +83,9 @@ Example:
 
         /**
          * Whether this modal-icon is openable (to show the expand and collapse icons).
+         *
+         * @type {Boolean}
+         * @default false
          */
         openable: {
           type: Boolean,
@@ -82,6 +94,9 @@ Example:
 
         /**
          * Whether this modal-icon is open.
+         *
+         * @type {Boolean}
+         * @default false
          */
         open: {
           type: Boolean,
@@ -90,6 +105,9 @@ Example:
 
         /**
          * Whether to show the polymer button ripple effect.
+         *
+         * @type {Boolean}
+         * @default false
          */
         ripple: {
           type: Boolean,
@@ -99,6 +117,11 @@ Example:
 
       /**
        * Returns the style class for the given custom icon based on whether to show the custom icon and whether this modal-item is openable.
+       *
+       * @param {Boolean} showIcon
+       * @param {Boolean} openable
+       * @return {String}
+       * @private
        */
       _showOrHideCustomIcon: function(showIcon, openable) {
         return (showIcon || !openable) ? 'show' : 'hide';
@@ -106,6 +129,12 @@ Example:
 
       /**
        * Returns the style class for the collapse icon based on whether to show the custom icon, whether this modal-item is openable, and whether it is open.
+       *
+       * @param {Boolean} showIcon
+       * @param {Boolean} openable
+       * @param {Boolean} open
+       * @return {String}
+       * @private
        */
       _showOrHideOpenedIcon: function(showIcon, openable, open) {
         return (!showIcon && openable && open) ? 'show' : 'hide';
@@ -113,6 +142,12 @@ Example:
 
       /**
        * Returns the style class for the expand icon based on whether to show the custom icon, whether this modal-item is openable, and whether it is open.
+       *
+       * @param {Boolean} showIcon
+       * @param {Boolean} openable
+       * @param {Boolean} open
+       * @return {String}
+       * @private
        */
       _showOrHideClosedIcon: function(showIcon, openable, open) {
         return (!showIcon && openable && !open) ? 'show' : 'hide';

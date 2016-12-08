@@ -1,16 +1,16 @@
 # modal-icon
 
-A polymer web component that shows a modular polymer paper-icon-button that can change between the expand icon, the collapse icon, and a given icon.
+A Polymer Element showing a modular polymer paper-icon-button that can change between the expand icon, the collapse icon, and a given icon.
 
-Example:
+### Example
 ```html
-        <modal-icon
-          icon="icons:polymer"
-          icon-style-class="style-class"
-          show-icon="[[hovering]]"
-          openable
-          open="[[open]]">
-        </modal-icon>
+    <modal-icon
+        icon="icons:polymer"
+        icon-style-class="style-class"
+        show-icon="[[hovering]]"
+        openable
+        open="[[open]]">
+    </modal-icon>
 ```
 
 ### Dependencies
