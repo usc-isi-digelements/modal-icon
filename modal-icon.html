@@ -6,14 +6,15 @@
 A Polymer Element showing a modular polymer paper-icon-button that can change between the expand icon, the collapse icon, and a given icon.
 
 ### Example
-
-    <modal-icon
-        icon="icons:polymer"
-        icon-style-class="style-class"
-        show-icon="[[hovering]]"
-        openable
-        open="[[open]]">
-    </modal-icon>
+```html
+<modal-icon
+  icon="icons:polymer"
+  icon-style-class="style-class"
+  show-icon="[[hovering]]"
+  openable
+  open="[[open]]">
+</modal-icon>
+```
 
 @demo demo/index.html
 -->
@@ -49,6 +50,8 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
 
       properties: {
         /**
+         * (Required)
+         *
          * A polymer paper-icon-button icon string.
          *
          * @type {String}
@@ -60,6 +63,8 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
         },
 
         /**
+         * (Optional)
+         *
          * The style class for the given icon.
          *
          * @type {String}
@@ -71,6 +76,8 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
         },
 
         /**
+         * (Optional)
+         *
          * Whether to show the given icon (override the expand and collapse icons).
          *
          * @type {Boolean}
@@ -82,6 +89,8 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
         },
 
         /**
+         * (Optional)
+         *
          * Whether this modal-icon is openable (to show the expand and collapse icons).
          *
          * @type {Boolean}
@@ -93,6 +102,8 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
         },
 
         /**
+         * (Optional)
+         *
          * Whether this modal-icon is open.
          *
          * @type {Boolean}
@@ -104,6 +115,8 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
         },
 
         /**
+         * (Optional)
+         *
          * Whether to show the polymer button ripple effect.
          *
          * @type {Boolean}
