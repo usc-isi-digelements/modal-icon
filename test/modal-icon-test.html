@@ -39,11 +39,8 @@ limitations under the License.
         element.icon = 'icons:polymer';
       });
 
-      test('icon is set to correct value', function() {
+      test('properties are set as expected', function() {
         expect(element.icon).to.equal('icons:polymer');
-      });
-
-      test('properties are set to default values', function() {
         expect(element.iconStyleClass).to.equal('');
         expect(element.showIcon).to.be.false;
         expect(element.openable).to.be.false;
