@@ -1,6 +1,6 @@
 # modal-icon
 
-A Polymer Element showing a modular polymer paper-icon-button that can change between the expand icon, the collapse icon, and a given icon.
+A Polymer Element showing a modular icon-button that can change between the expand icon, the collapse icon, and a given icon.
 
 ### Example
 ```html

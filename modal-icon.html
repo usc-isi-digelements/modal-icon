@@ -15,12 +15,10 @@ limitations under the License.
 -->
 
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../paper-styles/color.html">
+<link rel="import" href="../icon-button/icon-button.html">
 
 <!--
-A Polymer Element showing a modular polymer paper-icon-button that can change between the expand icon, the collapse icon, and a given icon.
+A Polymer Element showing a modular icon-button that can change between the expand icon, the collapse icon, and a given icon.
 
 ### Example
 ```html
@@ -44,6 +42,10 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
         align-items: center;
       }
 
+      icon-button {
+        --icon-button-color: var(--modal-icon-color);
+      }
+
       .hide {
         display: none;
       }
@@ -51,95 +53,33 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
       .show {
         display: block;
       }
-
-      paper-icon-button.amber {
-        color: var(--paper-amber-600);
-      }
-
-      paper-icon-button.black {
-        color: #111;
-      }
-
-      paper-icon-button.blue {
-        color: var(--paper-blue-600);
-      }
-
-      paper-icon-button.blue-grey {
-        color: var(--paper-blue-grey-600);
-      }
-
-      paper-icon-button.brown {
-        color: var(--paper-brown-600);
-      }
-
-      paper-icon-button.cyan {
-        color: var(--paper-cyan-600);
-      }
-
-      paper-icon-button.deep-orange {
-        color: var(--paper-deep-orange-600);
-      }
-
-      paper-icon-button.deep-purple {
-        color: var(--paper-deep-purple-600);
-      }
-
-      paper-icon-button.green {
-        color: var(--paper-green-600);
-      }
-
-      paper-icon-button.grey {
-        color: var(--paper-grey-600);
-      }
-
-      paper-icon-button.indigo {
-        color: var(--paper-indigo-600);
-      }
-
-      paper-icon-button.light-blue {
-        color: var(--paper-light-blue-600);
-      }
-
-      paper-icon-button.light-green {
-        color: var(--paper-light-green-600);
-      }
-
-      paper-icon-button.lime {
-        color: var(--paper-lime-600);
-      }
-
-      paper-icon-button.orange {
-        color: var(--paper-orange-600);
-      }
-
-      paper-icon-button.pink {
-        color: var(--paper-pink-600);
-      }
-
-      paper-icon-button.purple {
-        color: var(--paper-purple-600);
-      }
-
-      paper-icon-button.red {
-        color: var(--paper-red-600);
-      }
-
-      paper-icon-button.teal {
-        color: var(--paper-teal-600);
-      }
-
-      paper-icon-button.white {
-        color: #fff;
-      }
-
-      paper-icon-button.yellow {
-        color: var(--paper-yellow-600);
-      }
     </style>
 
-    <paper-icon-button class$="[[_showOrHideCustomIcon(showIcon, openable)]] [[iconStyleClass]]" disabled="[[!openable]]" icon$="[[icon]]" noink="[[!ripple]]"></paper-icon-button>
-    <paper-icon-button class$="[[_showOrHideOpenedIcon(showIcon, openable, open)]]" disabled="[[!openable]]" icon="icons:expand-less" noink="[[!ripple]]"></paper-icon-button>
-    <paper-icon-button class$="[[_showOrHideClosedIcon(showIcon, openable, open)]]" disabled="[[!openable]]" icon="icons:expand-more" noink="[[!ripple]]"></paper-icon-button>
+    <icon-button
+      bigger
+      class$="[[_showOrHideCustomIcon(showIcon, openable)]]"
+      disabled="[[!openable]]"
+      hide-ripple="[[!ripple]]"
+      icon="[[icon]]"
+      padded
+      style-class="[[iconStyleClass]]">
+    </icon-button>
+
+    <icon-button
+      bigger
+      class$="[[_showOrHideOpenedIcon(showIcon, openable, open)]]"
+      disabled="[[!openable]]"
+      hide-ripple="[[!ripple]]"
+      icon="icons:expand-less">
+    </icon-button>
+
+    <icon-button
+      bigger
+      class$="[[_showOrHideClosedIcon(showIcon, openable, open)]]"
+      disabled="[[!openable]]"
+      hide-ripple="[[!ripple]]"
+      icon="icons:expand-more">
+    </icon-button>
   </template>
 
   <script>
@@ -151,9 +91,9 @@ A Polymer Element showing a modular polymer paper-icon-button that can change be
 
       properties: {
         /**
-         * (Required)
+         * (Optional)
          *
-         * A polymer paper-icon-button icon string.
+         * The icon.
          *
          * @type {String}
          * @default ''

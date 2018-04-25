@@ -48,89 +48,89 @@ limitations under the License.
         expect(element.ripple).to.be.false;
       });
 
-      test('does show custom paper-icon-button if not showIcon and not openable and not open', function(done) {
+      test('does show custom icon-button if not showIcon and not openable and not open', function(done) {
         flush(function() {
-          expect(element.$$('paper-icon-button.show')).to.exist;
-          expect(element.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
+          expect(element.$$('icon-button.show')).to.exist;
+          expect(element.$$('icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show custom paper-icon-button if open but not showIcon and not openable', function(done) {
+      test('does show custom icon-button if open but not showIcon and not openable', function(done) {
         element.open = true;
         flush(function() {
-          expect(element.$$('paper-icon-button.show')).to.exist;
-          expect(element.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
+          expect(element.$$('icon-button.show')).to.exist;
+          expect(element.$$('icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show custom paper-icon-button if showIcon but not openable or open', function(done) {
+      test('does show custom icon-button if showIcon but not openable or open', function(done) {
         element.showIcon = true;
         flush(function() {
-          expect(element.$$('paper-icon-button.show')).to.exist;
-          expect(element.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
+          expect(element.$$('icon-button.show')).to.exist;
+          expect(element.$$('icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show custom paper-icon-button if showIcon and openable but not open', function(done) {
+      test('does show custom icon-button if showIcon and openable but not open', function(done) {
         element.showIcon = true;
         element.openable = true;
         flush(function() {
-          expect(element.$$('paper-icon-button.show')).to.exist;
-          expect(element.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
+          expect(element.$$('icon-button.show')).to.exist;
+          expect(element.$$('icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show custom paper-icon-button if showIcon and open but not openable', function(done) {
+      test('does show custom icon-button if showIcon and open but not openable', function(done) {
         element.showIcon = true;
         element.open = true;
         flush(function() {
-          expect(element.$$('paper-icon-button.show')).to.exist;
-          expect(element.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
+          expect(element.$$('icon-button.show')).to.exist;
+          expect(element.$$('icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('does show cusom paper-icon-button if showIcon and openable and open', function(done) {
+      test('does show cusom icon-button if showIcon and openable and open', function(done) {
         element.showIcon = true;
-        element.openable = true;
-        element.open = true;
-        flush(function() {
-          expect(element.$$('paper-icon-button.show')).to.exist;
-          expect(element.$$('paper-icon-button.show').icon).to.equal('icons:polymer');
-          done();
-        });
-      });
-
-      test('does show expand-more paper-icon-button if openable but not open or showIcon', function(done) {
-        element.openable = true;
-        flush(function() {
-          expect(element.$$('paper-icon-button.show')).to.exist;
-          expect(element.$$('paper-icon-button.show').icon).to.equal('icons:expand-more');
-          done();
-        });
-      });
-
-      test('does show expand-less paper-icon-button if openable and open but not showIcon', function(done) {
         element.openable = true;
         element.open = true;
         flush(function() {
-          expect(element.$$('paper-icon-button.show')).to.exist;
-          expect(element.$$('paper-icon-button.show').icon).to.equal('icons:expand-less');
+          expect(element.$$('icon-button.show')).to.exist;
+          expect(element.$$('icon-button.show').icon).to.equal('icons:polymer');
           done();
         });
       });
 
-      test('ripple does set noink', function(done) {
-        expect(element.$$('paper-icon-button')).to.exist;
-        expect(element.$$('paper-icon-button').noink).to.be.true;
+      test('does show expand-more icon-button if openable but not open or showIcon', function(done) {
+        element.openable = true;
+        flush(function() {
+          expect(element.$$('icon-button.show')).to.exist;
+          expect(element.$$('icon-button.show').icon).to.equal('icons:expand-more');
+          done();
+        });
+      });
+
+      test('does show expand-less icon-button if openable and open but not showIcon', function(done) {
+        element.openable = true;
+        element.open = true;
+        flush(function() {
+          expect(element.$$('icon-button.show')).to.exist;
+          expect(element.$$('icon-button.show').icon).to.equal('icons:expand-less');
+          done();
+        });
+      });
+
+      test('ripple does set hideRipple', function(done) {
+        expect(element.$$('icon-button')).to.exist;
+        expect(element.$$('icon-button').hideRipple).to.be.true;
         element.ripple = true;
         flush(function() {
-          expect(element.$$('paper-icon-button')).to.exist;
-          expect(element.$$('paper-icon-button').noink).to.be.false;
+          expect(element.$$('icon-button')).to.exist;
+          expect(element.$$('icon-button').hideRipple).to.be.false;
           done();
         });
       });
